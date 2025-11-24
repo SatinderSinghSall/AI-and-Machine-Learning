@@ -2,7 +2,7 @@
 
 class Student:
 
-    college = "KIIT"     # class variable
+    college = "KiiT University"     # class variable
 
     def __init__(self, name, course):
         self.name = name         # instance variable
