@@ -2,6 +2,7 @@
 
 # Class
 class student:
+    # Only use single constructor in a class
     def __init__(self, name, year, course, roll_no, cgpa):
         print("A Constructor was called!")
         self.name = name
