@@ -1,0 +1,3 @@
+SHOW DATABASES;
+
+CREATE DATABASE satinder_database_2;
