@@ -26,3 +26,28 @@ VALUES
 SELECT * FROM Students;
 
 DROP TABLE Students;
+
+CREATE TABLE Users(
+	id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT,
+    email VARCHAR(50) UNIQUE,
+    followers INT DEFAULT 0,
+    following INT DEFAULT 0,
+
+    CONSTRAINT age_check CHECK (age >= 0)
+);
+
+CREATE TABLE Post(
+	id INT PRIMARY KEY,
+    Content VARCHAR(900) NOT NULL,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+
+INSERT INTO Users VALUES
+(1, "Satinder Singh Sall", "satindersinghsall111@gmail.com", 500, 50),
+(2, "Soni Vaibhav Kumar", "sonivaibhavkumargmail.com", 200, 30),
+(3, "K Santosh Reddy", "ksantoshreddy@gmail.com", 500, 50);
+
+SELECT * FROM Users;
