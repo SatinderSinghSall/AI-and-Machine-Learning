@@ -90,3 +90,6 @@ SELECT * FROM Users;
 SELECT * FROM Posts;
 SELECT * FROM Likes;
 SELECT * FROM Comments;
+
+SELECT * FROM Users WHERE Followers > 200;
+SELECT * FROM Users WHERE Age > 15 AND Followers > 200;
