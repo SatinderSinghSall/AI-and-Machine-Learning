@@ -93,3 +93,27 @@ SELECT * FROM Comments;
 
 SELECT * FROM Users WHERE Followers > 200;
 SELECT * FROM Users WHERE Age > 15 AND Followers > 200;
+
+SELECT * FROM Users LIMIT 1;
+SELECT * FROM Comments ORDER BY post_id DESC;
+
+SELECT AVG(age) FROM Users;
+SELECT MAX(followers) FROM Users;
+SELECT COUNT(age) FROM Users WHERE age > 20;
+
+SELECT COUNT(id) FROM Users GROUP BY (age);
+SELECT MAX(followers) FROM Users GROUP BY (age) HAVING max(followers) > 200;
+SELECT MAX(followers) FROM Users GROUP BY (age) HAVING max(followers) > 10 ORDER BY followers ASC;
+
+SELECT * FROM Users;
+SELECT * FROM Posts;
+SELECT * FROM Likes;
+SELECT * FROM Comments;
+
+UPDATE Users SET age = 30 WHERE id = 1;
+SET SQL_SALE_UPDATES = 0;
+
+DELETE FROM Users WHERE id = 1;
+
+-- ALTER TABLE COMMANDS
+-- TRANCATE TABLE COMMANDS
