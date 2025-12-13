@@ -53,5 +53,3 @@ ROLLBACK TO after_wallet_topup;
 COMMIT;
 
 SELECT * FROM Accounts;
-
--- JOINTS in SQL:
