@@ -234,6 +234,10 @@ jupyter notebook LinearRegression.ipynb
 
 ---
 
+## 15. Author & Learning Purpose
+
+This notebook is designed for educational purposes, focusing on understanding Linear Regression concepts with practical implementation.
+
 ## ⭐ Contributing
 
 Contributions are welcome!  
