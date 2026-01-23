@@ -178,11 +178,11 @@ This helps interpret:
 
 ## ✅ Key Learnings (Classifier)
 
-✔ How Decision Trees classify data using splitting rules
-✔ How feature selection affects model performance
-✔ Why encoding categorical features is important
-✔ How to evaluate classification models using accuracy
-✔ How to interpret a Decision Tree visually
+- ✔ How Decision Trees classify data using splitting rules
+- ✔ How feature selection affects model performance
+- ✔ Why encoding categorical features is important
+- ✔ How to evaluate classification models using accuracy
+- ✔ How to interpret a Decision Tree visually
 
 ---
 
@@ -295,11 +295,11 @@ This helps understand:
 
 ## ✅ Key Learnings (Regressor)
 
-✔ How Decision Trees handle regression problems
-✔ How splitting reduces error in continuous prediction
-✔ Why overfitting is common in deep trees
-✔ How to evaluate regression models using R² and MSE
-✔ Visual interpretation of regression tree structure
+- ✔ How Decision Trees handle regression problems
+- ✔ How splitting reduces error in continuous prediction
+- ✔ Why overfitting is common in deep trees
+- ✔ How to evaluate regression models using R² and MSE
+- ✔ Visual interpretation of regression tree structure
 
 ---
 
@@ -355,13 +355,13 @@ jupyter notebook
 
 🚀 Future enhancements that can be added:
 
-✅ Add `classification_report` & confusion matrix for classifier
-✅ Add `RMSE` metric for regressor
-✅ Compare train vs test score to detect overfitting
-✅ Hyperparameter tuning using GridSearchCV
-✅ Feature importance visualization
-✅ Cross-validation for more reliable results
-✅ Build a reusable ML pipeline structure
+- ✅ Add `classification_report` & confusion matrix for classifier
+- ✅ Add `RMSE` metric for regressor
+- ✅ Compare train vs test score to detect overfitting
+- ✅ Hyperparameter tuning using GridSearchCV
+- ✅ Feature importance visualization
+- ✅ Cross-validation for more reliable results
+- ✅ Build a reusable ML pipeline structure
 
 ---
 
