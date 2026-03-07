@@ -1,0 +1,20 @@
+# Datasets
+*.csv
+*.zip
+*.tar
+*.gz
+
+# Data folders
+data/
+datasets/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
