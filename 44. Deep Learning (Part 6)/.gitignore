@@ -3,10 +3,12 @@
 *.zip
 *.tar
 *.gz
+IMDB Dataset.csv
 
 # Data folders
 data/
 datasets/
+IMDB Dataset.csv
 
 # Python
 __pycache__/
