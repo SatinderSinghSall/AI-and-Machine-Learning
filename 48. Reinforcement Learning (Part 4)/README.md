@@ -2,6 +2,277 @@
 
 # Reinforcement Learning & Deep Reinforcement Learning — Comprehensive Study
 
+# 🐦 Deep Q-Network (DQN) for Flappy Bird
+
+This project implements a **Deep Reinforcement Learning (DRL)** agent using **Deep Q-Networks (DQN)** to learn how to play the Flappy Bird game.
+
+The agent is trained using **Gymnasium’s FlappyBird-v0 environment** and leverages core reinforcement learning techniques such as:
+
+- Experience Replay
+- Target Networks
+- Epsilon-Greedy Exploration
+- Neural Network Function Approximation
+
+---
+
+## 📚 Concepts Covered
+
+This project demonstrates the practical implementation of:
+
+- Reinforcement Learning fundamentals
+- Q-Learning and Bellman Equation
+- Deep Q-Networks (DQN)
+- Experience Replay Buffer
+- Policy Network vs Target Network
+- Epsilon-Greedy Strategy with Decay
+- Batch Training with PyTorch
+- Model Saving and Logging
+
+---
+
+## 🧠 Architecture Overview
+
+### 1. Deep Q-Network (DQN)
+
+A simple feedforward neural network:
+
+```
+
+Input Layer (state_dim)
+↓
+Linear Layer
+↓
+ReLU Activation
+↓
+Linear Layer
+↓
+Output Layer (Q-values for each action)
+
+```
+
+Implemented using PyTorch:
+
+- Input: Environment state
+- Output: Q-values for actions (Flap / No-Flap)
+
+---
+
+### 2. Experience Replay
+
+A FIFO buffer that stores experiences:
+
+```
+
+(state, action, next_state, reward, terminated)
+
+```
+
+Benefits:
+
+- Breaks correlation between samples
+- Improves training stability
+- Enables batch learning
+
+---
+
+### 3. Target Network
+
+A separate network used to compute stable target Q-values:
+
+```
+
+Target Q = reward + γ \* max(Q_target(next_state))
+
+```
+
+- Updated periodically from the policy network
+- Prevents oscillations during training
+
+---
+
+### 4. Epsilon-Greedy Strategy
+
+Balances exploration and exploitation:
+
+```
+
+if random < epsilon:
+explore (random action)
+else:
+exploit (best action from model)
+
+```
+
+Epsilon decays over time:
+
+```
+
+epsilon = max(epsilon \* decay_rate, epsilon_min)
+
+```
+
+---
+
+## ⚙️ Project Structure
+
+```
+
+.
+├── agent.py # Main training & evaluation pipeline
+├── dqn.py # Neural network model
+├── experience_replay.py # Replay buffer implementation
+├── game_flappy_bird.py # Manual environment testing
+├── parameters.yaml # Hyperparameters configuration
+├── runs/ # Logs and saved models
+└── README.md
+
+```
+
+---
+
+## 🚀 How It Works
+
+### Training Loop
+
+1. Initialize environment and networks
+2. For each episode:
+   - Select action using epsilon-greedy policy
+   - Perform action in environment
+   - Store experience in replay buffer
+   - Sample mini-batch from memory
+   - Compute target Q-values using target network
+   - Update policy network via backpropagation
+3. Periodically sync target network
+4. Save best model based on reward
+
+---
+
+## 📊 Bellman Equation Used
+
+The core update rule:
+
+```
+
+Q(s, a) = r + γ \* max(Q_target(s', a'))
+
+```
+
+Implemented as:
+
+```python
+target_q = rewards + (1 - terminations) * gamma * target_dqn(next_states).max(dim=1)[0]
+```
+
+---
+
+## 🧪 Hyperparameters
+
+Defined in `parameters.yaml`:
+
+```yaml
+epsilon_init: 1
+epsilon_min: 0.05
+epsilon_decay_rate: 0.9995
+replay_memory_sizes: 100000
+mini_batch_size: 32
+network_sync_rate: 10
+alpha: 0.001
+gamma: 0.99
+reward_threshold: 1000
+```
+
+---
+
+## ▶️ How to Run
+
+### Train the agent
+
+```bash
+python agent.py flappybirdv0 --train
+```
+
+### Run trained agent (inference)
+
+```bash
+python agent.py flappybirdv0
+```
+
+---
+
+## 🧾 Features
+
+- ✅ Fully functional DQN pipeline
+- ✅ Experience replay with random sampling
+- ✅ Target network for stable learning
+- ✅ Batch training using PyTorch
+- ✅ Model saving based on best reward
+- ✅ Logging system for performance tracking
+- ✅ CLI interface for training/testing
+
+---
+
+## 📈 Expected Training Behavior
+
+- Initial episodes: random performance
+- Mid training: gradual improvement
+- Later episodes: stable policy learning
+
+Note: Flappy Bird is a challenging environment; learning may take several hundred episodes.
+
+---
+
+## ⚠️ Limitations
+
+- Uses basic DQN (no Double DQN)
+- No reward shaping
+- No prioritized experience replay
+- No state normalization
+
+---
+
+## 🔥 Future Improvements
+
+- Implement Double DQN
+- Add reward shaping
+- Use prioritized replay buffer
+- Introduce gradient clipping
+- Add training visualization (TensorBoard)
+- Tune hyperparameters for faster convergence
+
+---
+
+## 🧑‍💻 Technologies Used
+
+- Python
+- PyTorch
+- Gymnasium
+- Flappy Bird Gym Environment
+
+---
+
+## 🎯 Learning Outcome
+
+This project demonstrates:
+
+- End-to-end implementation of Deep Q-Learning
+- Understanding of RL training dynamics
+- Practical experience with neural network-based agents
+- Debugging and improving RL pipelines
+
+---
+
+## 📌 Conclusion
+
+This implementation successfully builds a Deep Q-Network agent capable of learning from interaction with the environment using modern reinforcement learning techniques. It serves as a strong foundation for more advanced RL methods.
+
+---
+
+## 🏁 Author
+
+**Satinder Singh Sall**
+
+---
+
 ## 📌 Overview
 
 This repository documents my end-to-end learning journey in **Reinforcement Learning (RL)** and **Deep Reinforcement Learning (DRL)**, covering both theoretical foundations and practical implementations.
@@ -81,7 +352,9 @@ The work includes:
 **Update Rule:**
 
 ```
+
 Q(s,a) ← Q(s,a) + α [r + γ Q(s',a') − Q(s,a)]
+
 ```
 
 **Key Characteristics:**
@@ -99,7 +372,9 @@ Q(s,a) ← Q(s,a) + α [r + γ Q(s',a') − Q(s,a)]
 **Update Rule:**
 
 ```
+
 Q(s,a) ← Q(s,a) + α [r + γ max_a Q(s',a) − Q(s,a)]
+
 ```
 
 **Key Characteristics:**
@@ -145,10 +420,12 @@ Q(s,a) ← Q(s,a) + α [r + γ max_a Q(s',a) − Q(s,a)]
 ### 🔹 Exploration Strategy
 
 ```
+
 if random < epsilon:
-    action = random_action
+action = random_action
 else:
-    action = argmax(Q[state])
+action = argmax(Q[state])
+
 ```
 
 - Epsilon decay used for balancing exploration vs exploitation
@@ -177,7 +454,9 @@ else:
 Replace Q-table with a neural network:
 
 ```
+
 Q(s, a) ≈ Neural Network(s)
+
 ```
 
 ### 🔹 Inputs & Outputs
@@ -193,9 +472,11 @@ Q(s, a) ≈ Neural Network(s)
 
 - Store experiences:
 
-  ```
-  (state, action, reward, next_state)
-  ```
+```
+
+(state, action, reward, next_state)
+
+```
 
 - Sample randomly during training
 
@@ -486,9 +767,9 @@ Make sure:
 
 ```python
 if random < epsilon:
-    action = random
+  action = random
 else:
-    action = argmax(Q)
+  action = argmax(Q)
 ```
 
 ✔ And:
