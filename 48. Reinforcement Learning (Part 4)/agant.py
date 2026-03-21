@@ -8,6 +8,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import random
+import os
+import argparse
 
 # Device setup
 if torch.backends.mps.is_available():
@@ -16,6 +18,9 @@ elif torch.cuda.is_available():
     device = "cuda"
 else:
     device = "cpu"
+
+RUNS_DIR = "runs"
+os.makedirs(RUNS_DIR, exist_ok=True)
 
 
 class Agent:
@@ -43,6 +48,9 @@ class Agent:
         self.loss_fn = nn.MSELoss()
         self.optimizer = None
 
+        self.LOG_FILE = os.path.join(RUNS_DIR, f"{self.params_set}.log")
+        self.MODEL_FILE = os.path.join(RUNS_DIR, f"{self.params_set}.pt")
+
     def run(self, is_training=True, render=False):
         env = gym.make("FlappyBird-v0", render_mode="human" if render else None)
 
@@ -61,14 +69,20 @@ class Agent:
             steps = 0
             self.optimizer = optim.Adam(policy_dqn.parameters(), lr=self.alpha)
 
+            best_reward = float("-inf")
+        else:
+            # Loading Best Model: Best Policy
+            policy_dqn.load_state_dict(torch.load(self.MODEL_FILE))
+            policy_dqn.eval()
+
         for episode in itertools.count():
             state, _ = env.reset()
             state = torch.tensor(state, dtype=torch.float32, device=device)
 
-            episode_rewards = 0
+            episode_reward = 0
             terminated = False
 
-            while not terminated:
+            while not terminated and episode_reward < self.reward_threshold:
                 # Epsilon-greedy action
                 if is_training and random.random() < epsilon:
                     action = torch.tensor(
@@ -78,7 +92,7 @@ class Agent:
                     )
                 else:
                     with torch.no_grad():
-                        action = policy_dqn(state.unsqueeze(0)).argmax(dim=1)
+                        action = policy_dqn(state.unsqueeze(0)).argmax(dim=1).squeeze()
 
                 # Step environment
                 next_state, reward, terminated, _, _ = env.step(action.item())
@@ -86,7 +100,7 @@ class Agent:
                 next_state = torch.tensor(next_state, dtype=torch.float32, device=device)
                 reward = torch.tensor(reward, dtype=torch.float32, device=device)
 
-                episode_rewards += reward.item()
+                episode_reward += reward.item()
 
                 if is_training:
                     memory.append(state, action, next_state, reward, terminated)
@@ -94,11 +108,20 @@ class Agent:
 
                 state = next_state
 
-            print(f"Episode: {episode + 1} | Reward: {episode_rewards:.2f} | Epsilon: {epsilon:.4f}")
+            print(f"Episode: {episode + 1} | Reward: {episode_reward:.2f} | Epsilon: {epsilon:.4f}")
 
             if is_training:
                 # Decay epsilon
                 epsilon = max(epsilon * self.epsilon_decay_rate, self.epsilon_min)
+
+                if episode_reward > best_reward:
+                    log_msg = f"Best Reward: {episode_reward} for Episode: {episode + 1}"
+
+                    with open(self.LOG_FILE, "a") as f:
+                        f.write(log_msg + "\n")
+
+                    torch.save(policy_dqn.state_dict(), self.MODEL_FILE)
+                    best_reward = episode_reward
 
                 # Train
                 if len(memory) >= self.mini_batch_size:
@@ -136,3 +159,19 @@ class Agent:
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
+
+if __name__ == "__main__":
+    import argparse
+
+    # Parse command line inputs
+    parser = argparse.ArgumentParser(description="Train or test model.")
+    parser.add_argument("hyperparameters", help="")
+    parser.add_argument("--train", help="Training mode", action="store_true")
+    args = parser.parse_args()
+
+    dql = Agent(params_set=args.hyperparameters)
+
+    if args.train:
+        dql.run(is_training=True)
+    else:
+        dql.run(is_training=False, render=True)
