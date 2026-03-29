@@ -1,6 +1,6 @@
 # 📄 Text Summarizer App (HuggingFace Transformer)
 
-# AI / ML: Deep Learning – Reinforcement Learning
+# AI / ML: Deep Learning – GenAI - Transformers
 
 A full-stack **Text Summarization Web Application** built using **Transformer models (T5)** from HuggingFace, deployed with **FastAPI** and a simple **HTML/CSS/JavaScript frontend**.
 
