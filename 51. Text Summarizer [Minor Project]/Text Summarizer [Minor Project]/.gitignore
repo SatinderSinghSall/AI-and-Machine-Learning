@@ -1,14 +1,21 @@
 # Training Model Dataset
 samsum-train.csv
 
+<<<<<<< HEAD
 # Model + checkpoints
+=======
+# Model + checkpoints (VERY IMPORTANT)
+>>>>>>> 2d558e773db5167e3f5a76a6770d051f757d0d28
 results/
 saved_summary_model/
 saved_tokenizer/
 
+<<<<<<< HEAD
 # Lecture notes
 Lecture Notes/
 
+=======
+>>>>>>> 2d558e773db5167e3f5a76a6770d051f757d0d28
 # ML files
 *.safetensors
 *.pt
@@ -19,4 +26,8 @@ Lecture Notes/
 .ipynb_checkpoints/
 
 # System
+<<<<<<< HEAD
 .DS_Store
+=======
+__pycache__/
+>>>>>>> 2d558e773db5167e3f5a76a6770d051f757d0d28

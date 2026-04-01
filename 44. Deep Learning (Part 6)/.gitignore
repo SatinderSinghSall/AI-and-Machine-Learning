@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Training Model Dataset
 samsum-train.csv
 
@@ -22,6 +23,8 @@ Class Slides/
 # System
 .DS_Store
 
+=======
+>>>>>>> 2d558e773db5167e3f5a76a6770d051f757d0d28
 # Datasets
 *.csv
 *.zip
