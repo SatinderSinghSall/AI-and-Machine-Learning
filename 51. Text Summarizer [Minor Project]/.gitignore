@@ -1,3 +1,6 @@
+# Training Model Dataset
+samsum-train.csv
+
 # Model + checkpoints (VERY IMPORTANT)
 results/
 saved_summary_model/
