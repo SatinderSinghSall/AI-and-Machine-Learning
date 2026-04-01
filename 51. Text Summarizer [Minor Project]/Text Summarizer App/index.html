@@ -5,14 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Text Summarizer</title>
+    <title>AI Text Summarizer</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- HEADER -->
-
     <header>
       <div class="logo">AI Text Summarizer</div>
 
@@ -25,35 +23,41 @@
       </a>
     </header>
 
-    <!-- MAIN -->
-
     <section class="main-section">
       <div class="container">
-        <h1>Text Summarizer</h1>
+        <div class="app-grid">
+          <!-- LEFT SIDE -->
 
-        <h3>Using HuggingFace Transformer</h3>
+          <div class="input-panel">
+            <h1>Text Summarizer</h1>
 
-        <p>Paste your content below for quick summarization.</p>
+            <h3>Using HuggingFace Transformer</h3>
 
-        <form id="summarization-form">
-          <textarea
-            id="dialogue-input"
-            placeholder="Paste your text here..."
-            required
-          ></textarea>
+            <p>Paste your content below for quick summarization.</p>
 
-          <button type="button" id="summarize-btn">Summarize Now</button>
-        </form>
+            <form id="summarization-form">
+              <textarea
+                id="dialogue-input"
+                placeholder="Paste your text here..."
+                required
+              ></textarea>
 
-        <div id="summary-output">
-          <h3 id="summary-heading">Content Summary</h3>
+              <button type="button" id="summarize-btn">Summarize Now</button>
+            </form>
+          </div>
 
-          <p id="summary-text"></p>
+          <!-- RIGHT SIDE -->
+
+          <div class="output-panel">
+            <div id="summary-output">
+              <h3 id="summary-heading">Content Summary</h3>
+
+              <p id="summary-text">Your summarized content will appear here.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
 
     <footer>
       <div class="credit">Developed by Satinder Singh</div>
@@ -71,5 +75,23 @@
         </a>
       </div>
     </footer>
+
+    <!-- PREMIUM ERROR MODAL -->
+
+    <div id="error-modal" class="modal">
+      <div class="modal-box">
+        <span class="close-modal" id="close-modal">&times;</span>
+
+        <div class="modal-icon">⚠️</div>
+
+        <h2>Something went wrong</h2>
+
+        <p id="error-message">Unable to process your request.</p>
+
+        <button class="modal-btn" id="modal-ok">Okay</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
