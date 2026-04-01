@@ -1,0 +1,10 @@
+Hello, I am Satinder Singh Sall
+& learning Python file handling.
+Currently I am pursuing
+My MCA degree from
+KiiT University, Bhubaneswar, Odisha, India.
+
+My skills:
+1. Full-Stack Development.
+2. Mobile App Development (Android / iOS)
+3. DevOps / Cloud Engg

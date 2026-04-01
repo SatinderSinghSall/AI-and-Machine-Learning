@@ -1,0 +1,19 @@
+# Training Model Dataset
+samsum-train.csv
+
+# Model + checkpoints (VERY IMPORTANT)
+results/
+saved_summary_model/
+saved_tokenizer/
+
+# ML files
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+__pycache__/

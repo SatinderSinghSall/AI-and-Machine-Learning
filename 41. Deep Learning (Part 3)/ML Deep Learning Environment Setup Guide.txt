@@ -1,0 +1,117 @@
+ML / Deep Learning Environment Setup Guide (Conda)
+
+---
+
+## IMPORTANT RULES
+
+• Create an environment only once
+• Activate it whenever you work
+• Keep PyTorch and TensorFlow in separate environments
+• Use numpy<2 to avoid compatibility crashes
+
+---
+
+OPTION 1: PYTORCH ENVIRONMENT (Recommended)
+Use this for ANN, Deep Learning & PyTorch projects
+--------------------------------------------------
+
+conda create -n dl python=3.10
+
+# Create a new environment named "dl"
+
+conda activate dl
+
+# Activate the environment
+
+conda install numpy<2 pandas scikit-learn matplotlib jupyterlab
+
+# Install essential ML libraries
+
+# numpy<2 prevents compatibility issues
+
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
+# Install PyTorch (CPU version)
+
+# If you have NVIDIA GPU, install GPU version instead
+
+---
+
+OPTION 2: TENSORFLOW ENVIRONMENT
+Use only when working with TensorFlow/Keras
+-------------------------------------------
+
+conda create -n tf python=3.10
+
+# Create separate environment for TensorFlow
+
+conda activate tf
+
+# Activate environment
+
+pip install tensorflow keras numpy<2 pandas matplotlib
+
+# Install TensorFlow stack
+
+# pip is recommended for TensorFlow
+
+# numpy<2 avoids compatibility problems
+
+---
+
+FIX: NUMPY COMPATIBILITY ERROR
+If you see crashes related to NumPy 2.x
+---------------------------------------
+
+conda install "numpy<2"
+
+# Downgrades NumPy to stable version
+
+---
+
+START JUPYTER LAB
+Run this after activating environment
+-------------------------------------
+
+jupyter lab
+
+---
+
+## USEFUL COMMANDS
+
+conda env list
+
+# Show all environments
+
+conda activate dl
+
+# Activate PyTorch environment
+
+conda activate tf
+
+# Activate TensorFlow environment
+
+conda remove -n dl --all
+
+# Delete an environment (if needed)
+
+---
+
+## BEST PRACTICES
+
+✓ One environment per technology stack
+✓ Do NOT install everything in base environment
+✓ Do NOT mix TensorFlow & PyTorch in one env
+✓ Always activate environment before running Jupyter
+✓ Keep environments clean and project-specific
+
+---
+
+## RECOMMENDED WORKFLOW
+
+1. Create project folder
+2. Activate environment
+3. Start Jupyter Lab
+4. Work on notebook
+
+---

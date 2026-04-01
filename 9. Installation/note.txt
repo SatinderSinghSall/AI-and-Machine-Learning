@@ -1,0 +1,2 @@
+In this module we've learned on how to
+install Anaconda & Jupiter Notebook / Lab

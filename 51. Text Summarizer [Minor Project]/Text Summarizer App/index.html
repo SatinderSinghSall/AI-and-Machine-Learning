@@ -1,0 +1,76 @@
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Text Summarizer</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <header>
+      <div class="logo">AI Text Summarizer</div>
+
+      <a
+        class="portfolio-link"
+        href="https://satinder-portfolio.vercel.app/"
+        target="_blank"
+      >
+        Developer Portfolio
+      </a>
+    </header>
+
+    <!-- MAIN -->
+
+    <section class="main-section">
+      <div class="container">
+        <h1>Text Summarizer</h1>
+
+        <h3>Using HuggingFace Transformer</h3>
+
+        <p>Paste your content below for quick summarization.</p>
+
+        <form id="summarization-form">
+          <textarea
+            id="dialogue-input"
+            placeholder="Paste your text here..."
+            required
+          ></textarea>
+
+          <button type="button" id="summarize-btn">Summarize Now</button>
+        </form>
+
+        <div id="summary-output">
+          <h3 id="summary-heading">Content Summary</h3>
+
+          <p id="summary-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="credit">Developed by Satinder Singh</div>
+
+      <div class="footer-links">
+        <a href="https://github.com/SatinderSinghSall" target="_blank">
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/satinder-singh-sall-b62049204/"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+# Training Model Dataset
+samsum-train.csv
+
+# Model + checkpoints
+results/
+saved_summary_model/
+saved_tokenizer/
+
+# Lecture notes
+Lecture Notes/
+Class Slides/
+
+# ML files
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+
+# ===============================
+# Large datasets & archives
+# ===============================
+data/
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# ===============================
+# Jupyter Notebook junk
+# ===============================
+.ipynb_checkpoints/
+.virtual_documents/
+
+# ===============================
+# Python cache & temp files
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ===============================
+# Anaconda / local environments
+# ===============================
+anaconda_projects/
+.env
+.venv
+env/
+venv/
+
+# ===============================
+# OS / Editor files
+# ===============================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===============================
+# Logs & temp outputs
+# ===============================
+*.log
+*.tmp
+
+# ===============================
+# Model checkpoints (optional)
+# Uncomment if models are large
+# ===============================
+# *.h5
+# *.pt
+# *.pth
+# *.ckpt

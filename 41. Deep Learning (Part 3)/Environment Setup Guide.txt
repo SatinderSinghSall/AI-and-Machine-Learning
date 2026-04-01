@@ -1,0 +1,23 @@
+conda create -n dl python=3.10
+conda activate dl
+conda install numpy pandas matplotlib scikit-learn tensorflow keras jupyter
+
+conda create -n dl python=3.10
+conda activate dl
+conda install pandas numpy matplotlib scikit-learn jupyterlab
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
+conda install numpy<2 pandas scikit-learn matplotlib
+
+
+PyTorch track:
+conda create -n dl python=3.10
+conda activate dl
+conda install numpy<2 pandas scikit-learn matplotlib jupyterlab
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
+
+TensorFlow track:
+conda create -n tf python=3.10
+conda activate tf
+pip install tensorflow keras numpy<2 pandas matplotlib
