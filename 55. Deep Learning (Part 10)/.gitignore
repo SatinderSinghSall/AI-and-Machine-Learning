@@ -22,6 +22,9 @@ data/pdfs/
 
 # Local environment
 anaconda_projects/
+.env
+.env.local
+.env.production
 
 # Notes / images
 Lecture Notes/
