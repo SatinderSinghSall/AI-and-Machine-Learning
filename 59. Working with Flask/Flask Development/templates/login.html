@@ -13,12 +13,22 @@
     <div class="login-container">
       <h2>Login</h2>
 
-      <form>
+      <form autocomplete="off" method="post" action="/dashboard">
         <label>Email</label>
-        <input type="email" placeholder="Enter your email" required />
+        <input
+          type="email"
+          placeholder="Enter your email"
+          required
+          name="name"
+        />
 
         <label>Password</label>
-        <input type="password" placeholder="Enter your password" required />
+        <input
+          type="password"
+          placeholder="Enter your password"
+          required
+          name="password"
+        />
 
         <button type="submit">Login</button>
 

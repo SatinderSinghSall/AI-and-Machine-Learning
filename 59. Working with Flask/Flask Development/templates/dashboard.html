@@ -1,0 +1,144 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Modern Dashboard</title>
+
+    <link rel="stylesheet" href="static/dashboard.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">⚡ <span>Dashboard</span></div>
+
+        <nav>
+          <a class="nav-item active">
+            <span>🏠</span>
+            <p>Dashboard</p>
+          </a>
+
+          <a class="nav-item">
+            <span>📊</span>
+            <p>Analytics</p>
+          </a>
+
+          <a class="nav-item">
+            <span>👥</span>
+            <p>Users</p>
+          </a>
+
+          <a class="nav-item">
+            <span>🧾</span>
+            <p>Orders</p>
+          </a>
+
+          <a class="nav-item">
+            <span>⚙️</span>
+            <p>Settings</p>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+
+      <main class="main">
+        <header class="header">
+          <button class="menu-btn" id="menuBtn">☰</button>
+
+          <input class="search" placeholder="Search..." />
+
+          <div class="profile">
+            <img src="https://i.pravatar.cc/40" />
+
+            <span>Admin</span>
+          </div>
+        </header>
+
+        <!-- CARDS -->
+
+        <section class="cards">
+          <div class="card">
+            <p>Total Revenue</p>
+            <h2>$45,231</h2>
+            <span class="positive">+20% this month</span>
+          </div>
+
+          <div class="card">
+            <p>New Users</p>
+            <h2>1,204</h2>
+            <span class="positive">+12% growth</span>
+          </div>
+
+          <div class="card">
+            <p>Orders</p>
+            <h2>856</h2>
+            <span class="positive">+6% today</span>
+          </div>
+
+          <div class="card">
+            <p>Conversion</p>
+            <h2>4.3%</h2>
+            <span>Stable</span>
+          </div>
+        </section>
+
+        <!-- TABLE -->
+
+        <section class="table-container">
+          <div class="table-header">
+            <h3>Recent Orders</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>User</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>#2034</td>
+                  <td>John Doe</td>
+                  <td><span class="badge success">Completed</span></td>
+                  <td>$120</td>
+                </tr>
+
+                <tr>
+                  <td>#2035</td>
+                  <td>Sarah Smith</td>
+                  <td><span class="badge pending">Pending</span></td>
+                  <td>$80</td>
+                </tr>
+
+                <tr>
+                  <td>#2036</td>
+                  <td>Michael</td>
+                  <td><span class="badge success">Completed</span></td>
+                  <td>$240</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="static/dashboard.js"></script>
+  </body>
+</html>
