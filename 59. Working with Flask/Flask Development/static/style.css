@@ -1,28 +1,27 @@
-/* Reset default browser styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background: #f4f6f9;
   color: #333;
   line-height: 1.6;
 }
 
 /* Header */
+
 header {
   background: #111;
   color: white;
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 38px;
   margin-bottom: 10px;
 }
 
@@ -30,37 +29,51 @@ header p {
   font-size: 18px;
 }
 
-/* Sections */
-section {
-  padding: 40px 15%;
+.header-buttons {
+  margin-top: 20px;
 }
 
-/* Alternate section background */
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #005dd1;
+}
+
+/* Sections */
+
+section {
+  padding: 50px 15%;
+}
+
 section:nth-child(even) {
   background: white;
 }
 
-/* Section titles */
+/* Titles */
+
 h2 {
-  margin-bottom: 20px;
   font-size: 28px;
+  margin-bottom: 20px;
   border-left: 4px solid #0077ff;
   padding-left: 10px;
 }
 
-/* Subtitles */
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #222;
 }
 
-/* Paragraphs */
-p {
-  margin-bottom: 15px;
-}
+/* Skills */
 
-/* Lists */
 ul {
   list-style: none;
   margin-bottom: 20px;
@@ -70,18 +83,28 @@ ul li {
   background: white;
   padding: 10px;
   margin-bottom: 8px;
-  border-radius: 5px;
   border-left: 4px solid #0077ff;
+  border-radius: 5px;
   transition: 0.3s;
 }
 
-/* Hover effect */
 ul li:hover {
-  transform: translateX(5px);
+  transform: translateX(6px);
   background: #eef5ff;
 }
 
+/* Project cards */
+
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Footer */
+
 footer {
   background: #111;
   color: white;
@@ -89,13 +112,44 @@ footer {
   padding: 20px;
 }
 
+/* Back to top */
+
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  font-size: 18px;
+  padding: 12px 15px;
+}
+
+/* Dark mode */
+
+.dark-mode {
+  background: #121212;
+  color: white;
+}
+
+.dark-mode section {
+  background: #1e1e1e;
+}
+
+.dark-mode ul li {
+  background: #2a2a2a;
+}
+
+.dark-mode .project-card {
+  background: #2a2a2a;
+}
+
 /* Responsive */
+
 @media (max-width: 900px) {
   section {
     padding: 40px 8%;
   }
 
   header h1 {
-    font-size: 28px;
+    font-size: 30px;
   }
 }

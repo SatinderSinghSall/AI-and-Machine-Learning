@@ -5,19 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Satinder Singh | Portfolio</title>
+
     <link rel="stylesheet" href="static/style.css" />
   </head>
 
   <body>
-    <!-- Header -->
     <header>
       <h1>Satinder Singh</h1>
       <p>Full Stack Developer | Building Scalable Digital Products</p>
+
+      <div class="header-buttons">
+        <button id="themeToggle">Dark Mode</button>
+        <button id="hireBtn">Hire Me</button>
+      </div>
     </header>
 
-    <!-- About -->
     <section>
       <h2>About Me</h2>
+
       <p>
         I build scalable, production-ready digital products with a focus on
         performance, maintainability, and real-world usability.
@@ -36,7 +41,6 @@
       </p>
     </section>
 
-    <!-- Skills -->
     <section>
       <h2>Technical Skills</h2>
 
@@ -78,41 +82,49 @@
       </ul>
     </section>
 
-    <!-- Projects -->
     <section>
       <h2>Projects</h2>
 
-      <h3>Production Web Applications</h3>
-      <p>
-        Designed and developed scalable web applications with proper
-        authentication, authorization, and secure backend architecture.
-      </p>
+      <div class="project-card">
+        <h3>Production Web Applications</h3>
+        <p>
+          Designed and developed scalable web applications with proper
+          authentication, authorization, and secure backend architecture.
+        </p>
+      </div>
 
-      <h3>Cloud Deployment</h3>
-      <p>
-        Deployed applications using modern cloud platforms like Vercel and
-        Render with CI/CD workflows.
-      </p>
+      <div class="project-card">
+        <h3>Cloud Deployment</h3>
+        <p>
+          Deployed applications using modern cloud platforms like Vercel and
+          Render with CI/CD workflows.
+        </p>
+      </div>
 
-      <h3>Future Work</h3>
-      <p>
-        Currently expanding into <strong>Game Development</strong> and
-        <strong>Mobile App Development</strong> to build impactful, scalable
-        products.
-      </p>
+      <div class="project-card">
+        <h3>Future Work</h3>
+        <p>
+          Currently expanding into <strong>Game Development</strong> and
+          <strong>Mobile App Development</strong> to build impactful scalable
+          products.
+        </p>
+      </div>
     </section>
 
-    <!-- Contact -->
     <section>
       <h2>Contact</h2>
+
       <p>Email: your-email@example.com</p>
       <p>GitHub: github.com/yourusername</p>
       <p>LinkedIn: linkedin.com/in/yourprofile</p>
     </section>
 
-    <!-- Footer -->
     <footer>
       <p>© 2026 Satinder Singh | Portfolio</p>
     </footer>
+
+    <button id="topBtn">⬆</button>
+
+    <script src="static/script.js"></script>
   </body>
 </html>
