@@ -3,12 +3,16 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-app = Flask(__name__)
-
+# load .env file
 load_dotenv()
+
+# get api key
 api_key = os.getenv("OPENAI_API_KEY")
 
+# create client
 client = OpenAI(api_key=api_key)
+
+app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
@@ -51,4 +55,3 @@ def summarize():
 
 if __name__ == "__main__":
     app.run(debug=True)
-

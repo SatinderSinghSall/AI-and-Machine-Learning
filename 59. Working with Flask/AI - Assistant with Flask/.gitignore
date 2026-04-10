@@ -9,3 +9,38 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+.virtual_documents/
+
+# Python
+__pycache__/
+*.pyc
+
+# Databases
+*.db
+*.sqlite3
+
+# Vector store / embeddings
+data/vector_store/
+*.bin
+*.pickle
+
+# Data files (optional)
+data/pdfs/
+*.pdf
+*.txt
+
+# Local environment
+anaconda_projects/
+.env
+.env.local
+.env.production
+
+# Notes / images
+Lecture Notes/
+
+# OS files
+.DS_Store
+Thumbs.db
