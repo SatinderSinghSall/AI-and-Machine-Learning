@@ -1,0 +1,101 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+}
+
+/* Sections */
+section {
+  padding: 40px 15%;
+}
+
+/* Alternate section background */
+section:nth-child(even) {
+  background: white;
+}
+
+/* Section titles */
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  border-left: 4px solid #0077ff;
+  padding-left: 10px;
+}
+
+/* Subtitles */
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+ul li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border-left: 4px solid #0077ff;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+ul li:hover {
+  transform: translateX(5px);
+  background: #eef5ff;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  section {
+    padding: 40px 8%;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+}
