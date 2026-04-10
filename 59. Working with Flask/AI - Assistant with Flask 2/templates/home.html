@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>AI Toolkit</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>AI Productivity Toolkit</h1>
+        <p>Choose a tool to boost your productivity</p>
+      </header>
+
+      <section class="cards">
+        <a href="/assistant" class="card">
+          <div class="icon">🤖</div>
+          <h2>AI Assistant</h2>
+          <p>Ask questions and get intelligent answers instantly.</p>
+        </a>
+
+        <a href="/email" class="card">
+          <div class="icon">📧</div>
+          <h2>Email Summarizer</h2>
+          <p>Paste long emails and get quick summaries.</p>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

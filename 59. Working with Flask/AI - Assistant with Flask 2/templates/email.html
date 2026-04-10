@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Email Summarizer</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/email.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Markdown renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="header">
+        <a href="/" class="back">← Home</a>
+
+        <h2>📧 Email Summarizer</h2>
+      </header>
+
+      <div class="content">
+        <form id="emailForm">
+          <label>Email Content</label>
+
+          <textarea
+            name="email"
+            placeholder="Paste the email you want summarized..."
+            required
+          ></textarea>
+
+          <button type="submit">Summarize</button>
+        </form>
+
+        <div id="loading" class="loading" style="display: none">
+          <div class="spinner"></div>
+
+          <span>Summarizing email...</span>
+        </div>
+
+        <div id="summaryCard" class="summary-card" style="display: none">
+          <h3>Summary</h3>
+
+          <div id="summary"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("emailForm");
+      const loading = document.getElementById("loading");
+      const summaryCard = document.getElementById("summaryCard");
+
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.target);
+
+        loading.style.display = "flex";
+
+        summaryCard.style.display = "none";
+
+        let res = await fetch("/summarize", {
+          method: "POST",
+          body: formData,
+        });
+
+        let data = await res.json();
+
+        loading.style.display = "none";
+
+        summaryCard.style.display = "block";
+
+        document.getElementById("summary").innerHTML = marked.parse(
+          data.response,
+        );
+      };
+    </script>
+  </body>
+</html>

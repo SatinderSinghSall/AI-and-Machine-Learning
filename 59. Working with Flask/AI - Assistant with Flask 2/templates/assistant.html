@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>AI Assistant</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/assistant.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Code Highlight -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <div class="chat-app">
+      <header class="chat-header">
+        <a href="/" class="back">← Home</a>
+
+        <div class="title">🤖 AI Assistant</div>
+      </header>
+
+      <div id="chatMessages" class="chat-messages"></div>
+
+      <div id="loading" class="typing" style="display: none">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+
+      <form id="askForm" class="chat-input">
+        <input
+          type="text"
+          name="question"
+          placeholder="Ask anything..."
+          required
+          autocomplete="off"
+        />
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script>
+      const chatMessages = document.getElementById("chatMessages");
+
+      document.getElementById("askForm").onsubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const question = formData.get("question");
+
+        /* USER MESSAGE */
+
+        const userWrapper = document.createElement("div");
+        userWrapper.className = "msg-row user-row";
+
+        userWrapper.innerHTML = `
+        <div class="avatar user-avatar">U</div>
+        <div class="message user">${question}</div>
+        `;
+
+        chatMessages.appendChild(userWrapper);
+
+        e.target.reset();
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        document.getElementById("loading").style.display = "flex";
+
+        let res = await fetch("/ask", {
+          method: "POST",
+          body: formData,
+        });
+
+        let data = await res.json();
+
+        document.getElementById("loading").style.display = "none";
+
+        /* AI MESSAGE */
+
+        const aiWrapper = document.createElement("div");
+        aiWrapper.className = "msg-row ai-row";
+
+        aiWrapper.innerHTML = `
+        <div class="avatar ai-avatar">AI</div>
+        <div class="message ai">${marked.parse(data.response)}</div>
+        `;
+
+        chatMessages.appendChild(aiWrapper);
+
+        /* Highlight code */
+
+        document.querySelectorAll("pre code").forEach((el) => {
+          hljs.highlightElement(el);
+        });
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      };
+    </script>
+  </body>
+</html>

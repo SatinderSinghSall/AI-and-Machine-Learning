@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #111;
+}
+
+/* Page layout */
+
+.page {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 20px;
+}
+
+/* Hero */
+
+.hero {
+  margin-bottom: 60px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* Cards layout */
+
+.cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+
+.card {
+  flex: 1;
+  min-width: 260px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  padding: 28px;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: all 0.2s ease;
+}
+
+/* Icon */
+
+.icon {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+/* Title */
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Description */
+
+.card p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Hover */
+
+.card:hover {
+  border-color: #d1d5db;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
