@@ -11,6 +11,11 @@
 ![Dataset](https://img.shields.io/badge/Dataset-CelebA-orange)
 ![Status](https://img.shields.io/badge/Module-Completed-success)
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![License](https://img.shields.io/badge/License-Academic-lightgrey)
+
 ---
 
 ## 📖 Overview
@@ -427,3 +432,416 @@ jupyter notebook
 AI/ML Student
 
 ---
+
+# Generative Adversarial Networks (GANs) — Deep Learning Module
+
+## Overview
+
+This repository/document summarizes the concepts, implementations, and experiments completed as part of a Deep Learning module focused on **Generative Adversarial Networks (GANs)**. The work covers both theoretical understanding and practical implementation using Vanilla GANs and Deep Convolutional GANs (DCGANs).
+
+---
+
+## Learning Objectives
+
+- Understand the core idea behind GANs and adversarial training
+- Implement Generator and Discriminator networks from scratch
+- Train GANs effectively and analyze convergence behavior
+- Generate synthetic images and evaluate their quality
+- Explore improvements using DCGAN architecture
+
+---
+
+## Topics Covered
+
+### 1. Introduction to GANs
+
+- Concept of adversarial learning
+- Generator vs Discriminator roles
+- Minimax objective function
+- Real vs fake data distribution learning
+
+### 2. GAN Architecture
+
+- Structure of Generator network
+- Structure of Discriminator network
+- Loss functions:
+  - Binary Cross Entropy (BCE)
+
+- Training dynamics between Generator and Discriminator
+
+### 3. Generator Network
+
+- Input: Random noise vector (latent space)
+- Output: Synthetic image
+- Layers:
+  - Fully connected / transpose convolution layers
+  - Activation functions (ReLU, Tanh)
+
+### 4. Discriminator Network
+
+- Input: Real or fake image
+- Output: Probability (real/fake)
+- Layers:
+  - Convolutional layers
+  - Activation functions (LeakyReLU, Sigmoid)
+
+### 5. Dataset Setup (CelebA)
+
+- Image preprocessing:
+  - Resizing
+  - Normalization
+
+- Loading datasets using PyTorch DataLoader
+
+### 6. Training the GAN
+
+- Alternating training strategy:
+  1. Train Discriminator
+  2. Train Generator
+
+- Loss tracking:
+  - Discriminator loss
+  - Generator loss
+
+- Epoch-wise monitoring
+
+### 7. Generated Image Visualization
+
+- Visual inspection of fake images
+- Tracking improvements over epochs
+- Understanding mode collapse
+
+### 8. Output Analysis (Epoch-wise)
+
+- Comparison of outputs after multiple epochs
+- Observing quality improvements
+
+### 9. DCGAN Implementation
+
+- Replacing fully connected layers with convolutional layers
+- Key improvements:
+  - Batch Normalization
+  - Strided convolutions
+  - Stable training
+
+- Better image quality and feature learning
+
+---
+
+## Project Structure
+
+```
+.
+├── vanilla_gan.ipynb      # Basic GAN implementation
+├── dcgan.ipynb           # Improved GAN using CNNs
+├── dataset/              # CelebA dataset (not included)
+├── outputs/              # Generated images
+└── README.md             # Project documentation
+```
+
+---
+
+## Key Concepts
+
+### GAN Objective Function
+
+The GAN training objective is defined as:
+
+```
+min_G max_D V(D, G) = E[log(D(x))] + E[log(1 - D(G(z)))]
+```
+
+Where:
+
+- `D(x)` = Probability that real data is real
+- `G(z)` = Generated data from noise
+
+---
+
+## Implementation Details
+
+### Vanilla GAN
+
+- Fully connected layers
+- Suitable for simple datasets
+- Less stable training
+
+### DCGAN
+
+- Convolutional architecture
+- Uses BatchNorm and LeakyReLU
+- Produces higher quality images
+- More stable training process
+
+---
+
+## Results
+
+- Initial epochs produce noisy outputs
+- Gradual improvement in image realism
+- DCGAN significantly outperforms Vanilla GAN
+
+---
+
+## Challenges Faced
+
+- Mode collapse
+- Training instability
+- Balancing Generator and Discriminator
+
+---
+
+## Future Improvements
+
+- Implement WGAN / WGAN-GP
+- Use larger datasets
+- Hyperparameter tuning
+- Add evaluation metrics (FID, IS score)
+
+---
+
+## Technologies Used
+
+- Python
+- PyTorch
+- NumPy
+- Matplotlib
+
+---
+
+## Conclusion
+
+This module provided a strong foundation in generative modeling using GANs. Through hands-on implementation of both Vanilla GAN and DCGAN, key challenges such as instability and convergence were explored, along with practical techniques to improve performance.
+
+---
+
+## Author
+
+**Satinder Singh Sall**
+
+---
+
+## License
+
+This project is for academic and educational purposes only.
+
+---
+
+# 🧠 Generative Adversarial Networks (GANs)
+
+### Deep Learning Module | Academic + Portfolio Project
+
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![License](https://img.shields.io/badge/License-Academic-lightgrey)
+
+---
+
+## 📌 Overview
+
+This project presents a comprehensive implementation and analysis of **Generative Adversarial Networks (GANs)**, completed as part of an advanced Deep Learning module.
+
+The work progresses from **Vanilla GANs** to **Deep Convolutional GANs (DCGANs)**, highlighting architectural improvements, training stability, and qualitative results.
+
+---
+
+## 🎯 Objectives
+
+- Understand adversarial training dynamics
+- Build GANs from scratch using PyTorch
+- Train models on real-world datasets (CelebA)
+- Analyze convergence and failure modes
+- Improve performance using DCGAN architecture
+
+---
+
+## 🧱 Architecture Overview
+
+### 🔹 Generator (G)
+
+- Input: Random noise vector (latent space `z`)
+- Output: Synthetic image
+- Learns to **fool the discriminator**
+
+### 🔹 Discriminator (D)
+
+- Input: Real or generated image
+- Output: Probability (real vs fake)
+- Learns to **detect fake samples**
+
+---
+
+## ⚙️ GAN Objective Function
+
+```math
+\min_G \max_D V(D, G) = \mathbb{E}[\log D(x)] + \mathbb{E}[\log(1 - D(G(z)))]
+```
+
+---
+
+## 📂 Project Structure
+
+```
+.
+├── vanilla_gan.ipynb       # Basic GAN implementation
+├── dcgan.ipynb             # CNN-based GAN (DCGAN)
+├── dataset/                # CelebA dataset (external)
+├── outputs/                # Generated images across epochs
+└── README.md               # Documentation
+```
+
+---
+
+## 🧪 Implementation Details
+
+### 🔸 Vanilla GAN
+
+- Fully connected layers
+- Basic architecture
+- Less stable training
+
+```python
+# Generator (simplified)
+class Generator(nn.Module):
+    def __init__(self, z_dim):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(z_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 784),
+            nn.Tanh()
+        )
+
+    def forward(self, x):
+        return self.net(x)
+```
+
+---
+
+### 🔸 DCGAN
+
+- Convolutional architecture
+- Batch Normalization
+- LeakyReLU activations
+- Improved stability and output quality
+
+```python
+# Discriminator (simplified DCGAN)
+class Discriminator(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv2d(3, 64, 4, 2, 1),
+            nn.LeakyReLU(0.2),
+            nn.Conv2d(64, 128, 4, 2, 1),
+            nn.BatchNorm2d(128),
+            nn.LeakyReLU(0.2),
+            nn.Flatten(),
+            nn.Linear(128 * 16 * 16, 1),
+            nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        return self.net(x)
+```
+
+---
+
+## 🖼️ Sample Generated Outputs
+
+### Early Training (Noisy Outputs)
+
+- Random patterns
+- No clear structure
+
+### Mid Training
+
+- Emerging facial features
+- Improved textures
+
+### Final Epochs
+
+- Realistic human-like faces
+- Better sharpness and consistency
+
+> 📌 (Add images here if uploading to GitHub: `/outputs/epoch_X.png`)
+
+---
+
+## 📊 Training Insights
+
+- Alternating optimization (D → G)
+- Loss trends:
+  - Discriminator loss stabilizes
+  - Generator improves gradually
+
+- Common issues:
+  - Mode collapse
+  - Vanishing gradients
+
+---
+
+## ⚠️ Challenges
+
+- Training instability
+- Hyperparameter sensitivity
+- Generator–Discriminator imbalance
+
+---
+
+## 🚀 Improvements Explored
+
+- DCGAN architecture
+- Batch normalization
+- Better weight initialization
+
+---
+
+## 🔮 Future Work
+
+- Wasserstein GAN (WGAN)
+- WGAN-GP for stability
+- FID / IS metrics for evaluation
+- Conditional GANs (cGAN)
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- PyTorch
+- NumPy
+- Matplotlib
+
+---
+
+## 📈 Key Takeaways
+
+- GANs learn through competition, not supervision
+- Training stability is the biggest challenge
+- Architecture design significantly impacts results
+
+---
+
+## 👤 Author
+
+**Satinder Singh Sall**
+
+---
+
+## 📄 License
+
+This project is intended for **academic and educational purposes**.
+
+---
+
+## ⭐ Portfolio Note
+
+This project demonstrates:
+
+- Strong understanding of **Deep Learning fundamentals**
+- Hands-on experience with **GAN architectures**
+- Ability to implement and analyze **research-level models**
+
+> Suitable for showcasing on **GitHub, resumes, and academic submissions**.
