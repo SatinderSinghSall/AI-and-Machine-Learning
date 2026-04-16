@@ -10,7 +10,7 @@ __pycache__/
 *.db
 *.sqlite3
 
-# Vector store / embeddings
+# Vector store/embeddings
 data/vector_store/
 *.bin
 *.pickle
@@ -19,6 +19,7 @@ data/vector_store/
 data/pdfs/
 *.pdf
 *.txt
+img_align_celeba/
 
 # Local environment
 anaconda_projects/
@@ -26,7 +27,7 @@ anaconda_projects/
 .env.local
 .env.production
 
-# Notes / images
+# Notes/images
 Lecture Notes/
 
 # OS files
